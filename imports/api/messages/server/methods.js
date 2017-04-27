@@ -8,7 +8,6 @@ export const sendMessage = new ValidatedMethod({
   name: 'sendMessage',
   validate(props) {
     check(props, {
-      user: String,
       topicId: String,
       msg: String,
     });
@@ -16,8 +15,12 @@ export const sendMessage = new ValidatedMethod({
   run(props) {
     const { msg, topicId } = props;
 
+    if (!this.userId) {
+      throw new Meteor.Error('error-not-authorized', 'User need to login', { method: 'sendMessage' });
+    }
+
     const msgRecord = {
-      user: '',
+      user: this.userId,
       topicId,
       msg
     };
