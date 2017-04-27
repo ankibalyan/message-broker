@@ -26,3 +26,5 @@ aldeed:simple-schema
 aldeed:collection2
 mdg:validated-method
 mdg:validation-error
+
+react-meteor-data
