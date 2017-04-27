@@ -35,7 +35,7 @@ export const SubscriptionSchema = new SimpleSchema({
   active: {
     type: Boolean,
     label: 'Subscriptions status',
-    default: true,
+    defaultValue: true,
     optional: true
   },
 });
