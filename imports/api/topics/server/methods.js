@@ -23,3 +23,18 @@ export const addTopic = new ValidatedMethod({
     }
   }
 });
+
+
+export const getTopics = new ValidatedMethod({
+  name: 'getTopics',
+  validate(props) {
+    check(props, undefined);
+  },
+  run() {
+    try {
+      return Topics.find().fetch();
+    } catch (e) {
+      throw new Meteor.Error('error-500', 'Internal server error', { method: 'addTopic' });
+    }
+  }
+});
