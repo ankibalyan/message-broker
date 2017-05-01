@@ -13,7 +13,6 @@ export const subscribeToTopic = new ValidatedMethod({
   },
   run(props) {
     const { topicId } = props;
-
     if (!this.userId) {
       throw new Meteor.Error('error-not-authorized', 'User need to login', { method: 'subscribeToTopic' });
     }
@@ -24,14 +23,14 @@ export const subscribeToTopic = new ValidatedMethod({
     if(subscriptions) {
       // TODO check if user is already subscribed to this
       try {
-        Subscriptions.update({ _id: subscriptions._id }, {$push: { topicIds } });
+        Subscriptions.update({ _id: subscriptions._id }, {$push: { topicIds: topicId } });
       } catch (e) {
         throw new Meteor.Error('error-500', 'Internal server error', { method: 'subscribeToTopic' });
       }
     } else {
       const subRecord = {
         user: this.userId,
-        topicIds,
+        topicIds: [topicId],
       };
 
       try {

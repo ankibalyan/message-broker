@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Messages } from '../schemas';
+import { Subscriptions } from '../../subscriptions/schemas';
 
 Meteor.publish('messages', function () {
   if (!this.userId) {
@@ -8,6 +9,5 @@ Meteor.publish('messages', function () {
 
   // get current user's subscribed topics
   const subscriptions = Subscriptions.findOne({ user: this.userId }) || [];
-
   return Messages.find({ topicId: { $in: subscriptions.topicIds } }, { fields: { msg: 1, topicId: 1 } } );
 });
