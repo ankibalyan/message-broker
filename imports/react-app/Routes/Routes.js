@@ -2,8 +2,10 @@ import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
+import MainLayout from '../layouts/MainLayout';
 import Welcome from '../screens/Welcome';
 import TopicsContainer from '../components/Topics/TopicsContainer';
+import TopicAdd from '../components/Topics/TopicAdd';
 import MessagesContainer from '../components/Messages/MessagesContainer';
 import MessagesPublish from '../components/Messages/MessagesPublish';
 import LogIn from '../components/Auth/LogIn';
@@ -39,15 +41,24 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 
 const Routes = () => (
   <Router>
-    <div>
+    <MainLayout>
       <AuthRoute path="/login" component={LogIn}/>
       <AuthRoute path="/signup" component={SignUp}/>
 
-      <Route exact path="/" component={Welcome}/>
-      <PrivateRoute path="/topics" component={TopicsContainer}/>
-      <PrivateRoute path="/messages" component={MessagesContainer}/>
-      <PrivateRoute path="/publish" component={MessagesPublish}/>
-    </div>
+      <Route exact path="/" render={
+        (props) => {
+          // if (isAuthenticated) {
+          //   return <MessagesContainer {...props} />
+          // }
+          return <Welcome {...props} />
+        }
+      }
+    />
+      <PrivateRoute exact path="/topics" component={TopicsContainer}/>
+      <PrivateRoute exact path="/topics/add" component={TopicAdd}/>
+      <PrivateRoute exact path="/messages" component={MessagesContainer}/>
+      <PrivateRoute exact path="/publish" component={MessagesPublish}/>
+    </MainLayout>
   </Router>
 );
 

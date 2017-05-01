@@ -6,6 +6,7 @@ export default class MessagesPublish extends Component {
     super(props);
     this.state = {
       topicId: '',
+      topics: [],
       msg: ''
     };
 
@@ -13,6 +14,19 @@ export default class MessagesPublish extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentWillMount() {
+    // fetch data
+    Meteor.call('getTopics',(err, res) => {
+      if (err) {
+        console.log(err);
+      } else {
+        this.setState({
+          topics: res || [],
+          topicId: res.length ? res[0]._id : '',
+        });
+      }
+    });
+  }
 
   onChange(e) {
     this.setState({
@@ -22,8 +36,9 @@ export default class MessagesPublish extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+    const topicId = this.state.topicId._str || this.state.topicId;
     const messageData = {
-      topicId: this.state.topicId,
+      topicId,
       msg: this.state.msg
     };
 
@@ -32,18 +47,18 @@ export default class MessagesPublish extends Component {
   }
 
   render() {
+    const { topics, topicId, msg } = this.state;
+
     return (
       <div className="message-publish-wrapper">
           <form className="form messages-form" onSubmit={this.onSubmit}>
             <div className="input-area">
-              <select name="topicId" value={this.state.topicId} onChange={this.onChange}>
-                <option>topic 1</option>
-                <option>topic 2</option>
-                <option>topic 3</option>
+              <select name="topicId" value={topicId} onChange={this.onChange}>
+                {topics.map((topic) => <option key={topic._id} value={topic._id}>{topic.name}</option>)}
               </select>
             </div>
             <div className="input-area">
-              <textarea name="msg" value={this.state.msg} onChange={this.onChange} />
+              <textarea name="msg" value={msg} onChange={this.onChange} />
             </div>
             <button type="submit" className="button button-submit">Publish Mesage</button>
         </form>

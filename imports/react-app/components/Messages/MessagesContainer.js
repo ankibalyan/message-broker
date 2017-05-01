@@ -7,11 +7,11 @@ import MessagePage from './MessagesPage.js';
 export default MessagesContainer = createContainer(() => {
   const messagesHandle = Meteor.subscribe('messages');
   const loading = !messagesHandle.ready();
-  const messages = Messages.find().fetch();
+  const messages = Messages.find();
   const messageExists = !loading && !!messages;
   return {
     loading,
-    messages,
     messageExists,
+    messages: messageExists? messages.fetch(): [],
   };
 }, MessagePage);

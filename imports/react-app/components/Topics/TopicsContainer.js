@@ -7,11 +7,11 @@ import TopicsPage from './TopicsPage.js';
 export default TopicsContainer = createContainer(() => {
   const topicsHandle = Meteor.subscribe('topics');
   const loading = !topicsHandle.ready();
-  const topics = Topics.find().fetch();
+  const topics = Topics.find();
   const topicExists = !loading && !!topics;
   return {
     loading,
-    topics,
     topicExists,
+    topics: topicExists ? topics.fetch() : []
   };
 }, TopicsPage);
