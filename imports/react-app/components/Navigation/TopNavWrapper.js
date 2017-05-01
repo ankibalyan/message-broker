@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react';
 
 const TopNavWrapper = ({ children }) => {
   return(
-    <ul className="nav-wrapper">
+    <div className="nav-wrapper">
       {children}
-    </ul>
+    </div>
   );
 };
 

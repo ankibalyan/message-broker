@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const TopNav = ({ children }) => {
   return(
-    <div>
-      <li><Link to="/">Home</Link></li>
+    <div className="nav-brand">
+      <Link to="/">Message Broker</Link>
     </div>
   );
 };

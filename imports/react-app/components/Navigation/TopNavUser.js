@@ -42,17 +42,19 @@ export default class TopNavUser extends Component {
 
     if (isAuthenticated) {
       return (
-        <div>
+        <ul className="nav-menu">
           <li><Link to="/messages">Messages</Link></li>
           <li><Link to="/topics">Topics</Link></li>
           <li><Link to="/publish">Publish Messages</Link></li>
           <li><Link to="/topics/add">Add Topics</Link></li>
           <li><a onClick={this.handleLogout}>Logout</a></li>
-        </div>
+        </ul>
       );
     } else {
       return (
-        <li><Link to="/login">Login</Link></li>
+        <ul className="nav-menu">
+          <li><Link to="/login">Login</Link></li>
+        </ul>
       );
     }
 
@@ -60,6 +62,7 @@ export default class TopNavUser extends Component {
   }
 
   render() {
+    let links;
     return(
       <div>
         {this.renderLinks()}

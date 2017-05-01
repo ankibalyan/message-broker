@@ -5,7 +5,7 @@ import TopNavUser from '../components/Navigation/TopNavUser';
 
 const MainLayout = ({ children }) => {
   return (
-    <div>
+    <div className="main-layout">
       <TopNavWrapper>
         <TopNav />
         <TopNavUser />

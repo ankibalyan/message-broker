@@ -1,0 +1,30 @@
+.nav-wrapper{
+  display: flex;
+  flex: 1;
+  list-style: none;
+  align-self: center;
+  justify-content: flex-start;
+  .nav-brand{
+    // flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0;
+    // display: flex;
+    flex: 1;
+  }
+
+  .nav-menu{
+    flex: 3;
+    li {
+      margin: 5px 10px; 
+      display: inline-block;
+      float: left;
+      // justify-content: center;;
+      // flex-grow: 1;
+      // flex-shrink: 0;
+      // flex-basis: 0;
+      // display: flex;
+      // justify-content: center;
+      // align-self: center;
+    }
+  }
+}
