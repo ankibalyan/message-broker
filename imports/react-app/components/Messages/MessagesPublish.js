@@ -50,19 +50,20 @@ export default class MessagesPublish extends Component {
     const { topics, topicId, msg } = this.state;
 
     return (
-      <div className="message-publish-wrapper">
+      <section className="container section section-publish">
+          <h1  className="text-center">Publish a new message</h1>
           <form className="form messages-form" onSubmit={this.onSubmit}>
             <div className="input-area">
-              <select name="topicId" value={topicId} onChange={this.onChange}>
+              <select className="input-selectbox" name="topicId" value={topicId} onChange={this.onChange}>
                 {topics.map((topic) => <option key={topic._id} value={topic._id}>{topic.name}</option>)}
               </select>
             </div>
             <div className="input-area">
-              <textarea name="msg" value={msg} onChange={this.onChange} />
+              <textarea className="input-textarea" name="msg" value={msg} onChange={this.onChange} />
             </div>
             <button type="submit" className="button button-submit">Publish Mesage</button>
         </form>
-      </div>
+      </section>
     );
   }
 };

@@ -1,14 +1,20 @@
 .input-area {
-  .input-text, .input-password {
+  .input-text, .input-password, .input-selectbox, .input-textarea {
     font-size: 1.25em;
     padding: 0.5em;
-    margin: 0.5em;
+    margin: 0.5em 1rem;
     color: #333;
     background: #fff;
     border: 1px solid #ccc;
     border-radius: none;
+    width: 100%;
+    box-sizing: border-box;
     &:hover, &:focus {
       border: 1px solid #333;
     }
+  }
+
+  .input-selectbox{
+
   }
 }

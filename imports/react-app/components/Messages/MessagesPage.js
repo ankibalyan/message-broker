@@ -19,9 +19,10 @@ export default class MessagesPage extends Component {
   }
   render () {
     return (
-      <div className="messages-wrapper">
+      <section className="container section section-messages">
+        <h1 className="text-center">Messages</h1>
         {this.renderMessagesList()}
-      </div>
+      </section>
     );
   }
 }

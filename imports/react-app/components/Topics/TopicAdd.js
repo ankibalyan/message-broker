@@ -32,14 +32,15 @@ export default class TopicAdd extends Component {
 
   render() {
     return (
-      <div className="message-publish-wrapper">
+      <section className="container section section-publish">
+        <h1 className="text-center">Add a new Topic</h1>
           <form className="form messages-form" onSubmit={this.onSubmit}>
             <div className="input-area">
               <input className="input-text" name="name" onChange={this.onChange} />
             </div>
             <button type="submit" className="button button-submit">Add Topic</button>
         </form>
-      </div>
+      </section>
     );
   }
 };

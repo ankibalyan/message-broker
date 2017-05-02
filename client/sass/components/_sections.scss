@@ -3,7 +3,12 @@
   min-height: 100vh;
   align-self: center;
   align-items: center;
-  .section-home{
+  &.section-home{
 
+  }
+
+  &.section-messages{
+    align-self: flex-start;
+    justify-content: space-around;
   }
 }

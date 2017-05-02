@@ -26,12 +26,12 @@ export default class TopicsPage extends Component {
     const { topics } = this.props;
     console.log(topics);
     return topics.map((item) => (
-      <div key={item._id} className="message-item">
-        <div className="messages-text">
+      <div key={item._id} className="topics-item">
+        <div className="topics-text">
           {item.name}
         </div>
-        <div className="messages-options">
-          <button onClick={() => this.onSubscribe(item._id)}>Subscribe</button>
+        <div className="topics-options">
+          <button className="button" onClick={() => this.onSubscribe(item._id)}>Subscribe</button>
         </div>
       </div>
     ));
@@ -40,9 +40,10 @@ export default class TopicsPage extends Component {
   render () {
     console.log(this.props);
     return (
-      <div className="messages-wrapper">
+      <section className="container section section-topics">
+        <h1 className="text-center">Topics to subscribe</h1>
         {this.renderItem()}
-      </div>
+      </section>
     );
   }
 }
