@@ -1,6 +1,17 @@
-.main-layout{
+body, ul, li, section{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+.main-layout {
+  width: 100%;
   display: flex;
   flex: 1;
   flex-direction: column;
-  // margin: 0 auto;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
 }

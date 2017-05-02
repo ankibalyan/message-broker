@@ -2,9 +2,9 @@ import React from 'react';
 
 const Welcome = () => {
   return (
-    <div>
+    <section className="section section-home">
       <h1>Welcome to Messages Broker</h1>
-    </div>
+    </section>
   );
 }
 
