@@ -1,0 +1,14 @@
+.input-area {
+  .input-text, .input-password {
+    font-size: 1.25em;
+    padding: 0.5em;
+    margin: 0.5em;
+    color: #333;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: none;
+    &:hover, &:focus {
+      border: 1px solid #333;
+    }
+  }
+}

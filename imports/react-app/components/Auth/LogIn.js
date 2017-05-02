@@ -49,7 +49,7 @@ export default class LogIn extends Component {
     }
 
     return (
-      <div>
+      <section className="section section-auth">
         <h1>LogIn</h1>
         <form className="form login-form" onSubmit={this.onSubmit}>
           <div className="input-area">
@@ -60,7 +60,7 @@ export default class LogIn extends Component {
           </div>
           <button type="submit" className="button button-submit">Login</button>
         </form>
-      </div>
+      </section>
     );
   }
 }

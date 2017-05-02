@@ -54,6 +54,7 @@ export default class TopNavUser extends Component {
       return (
         <ul className="nav-menu">
           <li><Link to="/login">Login</Link></li>
+          <li><Link to="/signup">Signup</Link></li>
         </ul>
       );
     }

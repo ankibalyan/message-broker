@@ -56,7 +56,7 @@ export default class SignUp extends Component {
     }
 
     return (
-      <div>
+      <section className="section section-auth">
         <h1>Get register with us</h1>
         <form className="form signup-form" onSubmit={this.onSubmit}>
           <div className="input-area">
@@ -67,7 +67,7 @@ export default class SignUp extends Component {
           </div>
           <button type="submit" className="button button-submit">SignUp</button>
         </form>
-      </div>
+      </section>
     );
   }
 }
